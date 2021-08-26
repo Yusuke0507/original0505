@@ -1,0 +1,66 @@
+<div class="contents row">
+  <div class="container">
+    <h2>新規登録</h2>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class ="field">
+      <label>名前</label><br />
+      <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+    </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+       <div class="field">
+        <label>郵便番号</label><br />
+        <%= f.text_field :postal_code, placeholder: "例) 1234567" %>
+      </div>
+
+      <div class="field">
+        <label>都道府県</label><br />
+        <%= f.text_field :prefecture %>
+      </div>
+
+      <div class="field">
+        <label>市区町村</label><br />
+        <%= f.text_field :municipality %>
+      </div>
+
+      <div class="field">
+        <label>番地</label><br />
+        <%= f.text_field :address%>
+      </div>
+
+      <div class="field">
+        <label>建物名</label><br />
+        <%= f.text_field :building %>
+      </div>
+
+      <div class="field">
+        <label>電話番号</label><br />
+        <%= f.text_field :phone, placeholder:"例)09012345678"%>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+  </div>
+</div>

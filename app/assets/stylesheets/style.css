@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+body {
+  background-color: #e6e2d7;
+  color: #000;
+  font-family: 'Noto Serif JP', serif;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+li {
+  list-style: none;
+}
+
+.site-title {
+  line-height: 1px;
+  margin-left: 60px;
+}
+.site-title a {
+  display: block;
+}
+.site-title img {
+  width: 40px;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('/assets/wasyoku2.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding: 60px 80px;
+  margin-bottom: 180px;
+  
+  position: relative;
+  
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;  
+  -moz-writing-mode: vertical-rl;     
+  -ms-writing-mode: tb-rl;            
+}
+
+#products2 .section-title {
+  margin-right: 20px;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+}
+#products2 .text {
+  background: rgba(149, 42, 38, 0.6);
+  right: -20px;
+}
+
+/*-------------------------------------------
+-------------------------------------------*/
+.reservation-form{
+  color: black;
+}
+
+.reservation-btn{
+  color: black;
+}
+
+
+.pagetop1{
+  display: none;
+  padding: 40px 10px;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 50%;
+  margin-right: auto;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+/*-------------------------------------------
+-------------------------------------------*/
+
+main {
+}
+
+.products {
+  display: flex;
+  margin-bottom: 180px;
+}
+.products .section-title {
+  font-weight: normal;
+  line-height: 1;
+}
+.products .section-title .ja {
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 18px;
+}
+
+
+.products .text {
+  width: 56%;
+  color: black;
+  
+  text-align:left;
+  
+  bottom: -20px;
+}
+
+/*-------------------------------------------
+products1
+-------------------------------------------*/
+
+#products1 {
+  flex-direction: row-reverse;
+}
+#products1 .section-title {
+  margin-left: 20px;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -moz-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+}
+#products1 .text {
+  
+  left: -20px;
+}
+
+/*-------------------------------------------
+Products2
+-------------------------------------------*/
+#products2 .section-title {
+  margin-right: 20px;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+}
+#products2 .text {
+  background: #e6e2d7;
+  right: -20px;
+}

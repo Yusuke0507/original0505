@@ -1,0 +1,79 @@
+
+
+
+<html lang="ja">
+  <head>
+    <title>創作</title>
+    <meta charset="utf-8">
+
+    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+ 
+    <%# <link rel="stylesheet" href="css/style.css"> %>
+  </head>
+
+  <body>
+    <header id="header">
+      <h1 class="site-title">
+        <a href="/">想作和食 旬</a>
+      </h1>
+
+      <nav id="nav">
+      
+      <% if user_signed_in? %>
+        <ul>
+          <li><%= link_to "予約", new_reservation_path, method: :get %></li>
+          <li><%= link_to "注文", '#'%></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <a class="pagetop1" id="top" href=/reservations/new>お店のご予約はこちら</a> 
+          <% else %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+        </ul>
+        
+        <% end %>
+      </nav>
+
+      
+    </header>
+
+
+<% if user_signed_in? %>
+    <main>
+      <section id="news" class="wrapper">
+      </section>
+      <section id="products1" class="products wrapper">
+        <h2 class="section-title">
+          <span class="ja">ご注文</span>
+        </h2>
+        <div class="img">
+          <a href=/reservations/new><img src="/assets/kaisen1.jpg" alt="購入">
+          <p class="text">海鮮鍋セット (4人前)<br>¥12,800-</p></a>
+        </div>
+      </section>
+
+      <section id="products2" class="products wrapper">
+        
+        <div class="img">
+          <a href=/reservations/new><img src="/assets/motu.jpg" alt="購入">
+          <p class="text">もつ鍋セット (4人前)<br>¥10,800-</p></a>
+        </div>
+      </section>
+
+    </main>
+<% end %>
+
+
+
+ <script>
+    const topLink = document.getElementById("top");
+    window.addEventListener("scroll", () => {
+      const scrollValue = document.scrollingElement.scrollTop;
+      if (scrollValue >= 140) {
+          topLink.style.display = "inline";
+      } else if (scrollValue < 140) {
+          topLink.style.display = "none";
+      }
+    });
+</script>

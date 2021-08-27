@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
   end
@@ -10,12 +11,17 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.save
+    if @reservation.valid?
+      @reservation.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   private
   def reservation_params
-    params.require(:reservation).permit(:time, :date, :people, :remark, :menu_id).merge(user_id: current_user.id)
+    params.require(:reservation).permit(:time, :date, :people, :remark, :menu_id, :total_price).merge(user_id: current_user.id)
   end
 end
 

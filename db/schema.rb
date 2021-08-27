@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_012921) do
     t.date "date", null: false
     t.integer "people", null: false
     t.text "remark"
+    t.integer "total_price", null: false
     t.bigint "user_id", null: false
     t.bigint "menu_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_012921) do
+ActiveRecord::Schema.define(version: 2021_08_27_053734) do
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "price"
@@ -19,11 +19,23 @@ ActiveRecord::Schema.define(version: 2021_08_26_012921) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "order_name", null: false
+    t.date "arrival", null: false
+    t.integer "number", null: false
+    t.integer "order_price"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.time "time", null: false
     t.date "date", null: false
     t.integer "people", null: false
     t.text "remark"
+    t.integer "person_price", null: false
     t.integer "total_price", null: false
     t.bigint "user_id", null: false
     t.bigint "menu_id", null: false
@@ -52,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_012921) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "users"
   add_foreign_key "reservations", "menus"
   add_foreign_key "reservations", "users"
 end

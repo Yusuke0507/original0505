@@ -9,5 +9,6 @@ class Reservation < ApplicationRecord
     validates :user_id
     validates :people
     validates :total_price
+    validates :person_price
   end
 end

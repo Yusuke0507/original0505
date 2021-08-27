@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    reservation_id = Reservation.find_by(code: params[:reservation][:person_price_id]).id
+    
     @reservation = Reservation.new(reservation_params)
     if @reservation.valid?
       @reservation.save

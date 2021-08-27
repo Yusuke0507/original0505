@@ -65,6 +65,5 @@ ActiveRecord::Schema.define(version: 2021_08_27_053734) do
   end
 
   add_foreign_key "orders", "users"
-  add_foreign_key "reservations", "menus"
   add_foreign_key "reservations", "users"
 end

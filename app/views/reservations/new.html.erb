@@ -27,14 +27,15 @@
         <div class="person-price">
           <span>1人当たりのお支払い</span><br />
           <span>
+          <%= f.hidden_field :person_price, value: "''" %>
           <span id="person_price"></span>円 
           </span>
         </div>
 
         <div class="total-price">
-        
           <span>合計金額</span><br />
           <span>
+          <%= f.hidden_field :total_price, value: "''" %>
           <span id="total_price"></span>円
           </span>
           
@@ -65,6 +66,7 @@
     const people = document.getElementById("reservation_people");
     people.addEventListener("input", () => {
     document.getElementById("total_price").innerHTML = Math.floor(personPrice * parseInt(document.getElementById('reservation_people').value));
+    document.getElementById("total_price").value = Math.floor(personPrice * parseInt(document.getElementById('reservation_people').value));
     })
   });
   </script>

@@ -1,5 +1,8 @@
 <div class="success">
     <h3>ご予約ありがとうございます。</h3>
-     <p>お支払いは<%=@reservation.total_price%>円です</p>
-    <a class="btn" href="/">投稿一覧へ戻る</a>
+    <h4>ご予約詳細</h4>
+    <p>ご予約日: <%= @reservation.date%></p>
+    <p>ご予約時間: <%= @reservation.time.strftime( "%H:%M" )%></p>
+     <p>お支払いは <%=@reservation.total_price%> 円です</p>
+    <a class="btn" href="/">トップページへ戻る</a>
   </div>

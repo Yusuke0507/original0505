@@ -14,7 +14,6 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.valid?
       @reservation.save
-      redirect_to root_path
     else
       render 'new'
     end

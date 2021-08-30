@@ -27,7 +27,7 @@
         <div class="person-price">
           <span>1人当たりのお支払い</span><br />
           <span>
-          <%= f.hidden_field :person_price, value: "''" %>
+          <%= f.text_field :person_price %>
           <span id="person_price"></span>円 
           </span>
         </div>
@@ -35,7 +35,7 @@
         <div class="total-price">
           <span>合計金額</span><br />
           <span>
-          <%= f.hidden_field :total_price, value: "''" %>
+          <%= f.text_field :total_price %>
           <span id="total_price"></span>円
           </span>
           
@@ -62,14 +62,14 @@
     const selected_index = menu_select.selectedIndex;
     const selected_option = menu_select.options[selected_index];
     const price = selected_option.getAttribute("data-price");
-
-    const personPrice = document.getElementById("person_price").innerHTML = price; 
+    const personPrice = document.getElementById("person_price").innerHTML = price;
+    document.getElementById("reservation_person_price").value = price;
     const people = document.getElementById("reservation_people");
     people.addEventListener("input", () => {
     document.getElementById("total_price").innerHTML = Math.floor(personPrice * parseInt(document.getElementById('reservation_people').value));
-    document.getElementById("total_price").value = Math.floor(personPrice * parseInt(document.getElementById('reservation_people').value));
+    document.getElementById("reservation_total_price").value = Math.floor(personPrice * parseInt(document.getElementById('reservation_people').value));
     })
   });
   </script>
 
-  <% end %> 
+  <% end %>

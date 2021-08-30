@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 2021_08_28_062853) do
     t.integer "product_price"
     t.string "product_name"
     t.text "image"
+    t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_products_on_order_id"
   end
 
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

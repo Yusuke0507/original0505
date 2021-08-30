@@ -5,9 +5,9 @@
     <h2>商品選択</h2>
 
     <%= Product.all.each do |product|%>
-    <%= @product.product_name %>
-    <%= @product.product_price %>
-    <%= @product.image %>
+      <%= @product.product_name %>
+    <% end %>
+
     <div class="reservation-btn">
       <%= link_to '戻る', root_path, class:'reservation-form'%> 
     </div>

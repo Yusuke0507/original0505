@@ -161,3 +161,27 @@ Products2
 .btn{
   color: black;
 }
+
+/*-------------------------------------------
+予約フォーム
+-------------------------------------------*/
+.number{
+  width: 200px;
+}
+
+.cvc {
+  width: 200px;
+  color:black;
+}
+
+.label {
+  width: 200px;
+}
+
+.exp_month {
+  width: 200px;
+}
+
+.exp_year {
+  width: 200px;
+}

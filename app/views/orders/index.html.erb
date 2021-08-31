@@ -4,8 +4,12 @@
     <div class="reservation-price">
     <h2>商品選択</h2>
 
-    <%= Product.all.each do |product|%>
-      <%= @product.product_name %>
+    <% Product.all.each do |product|%>
+      <ul class="product">
+        <li><img src="<%= product.image %>"></li>
+        <li><%= product.name %></li>
+        <li><%= product.price %></li>
+      </ul>
     <% end %>
 
     <div class="reservation-btn">

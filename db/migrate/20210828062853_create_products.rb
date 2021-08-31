@@ -1,8 +1,8 @@
 class CreateProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :products do |t|
-      t.integer :product_price
-      t.string :product_name
+      t.integer :price
+      t.string :name
       t.text :image 
       t.references :order
       t.timestamps

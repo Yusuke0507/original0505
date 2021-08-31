@@ -1,9 +1,27 @@
   <h1><%= link_to '予約フォーム', root_path, class:'reservation-form'%></h1>
-  <%= form_with model: @reservation, class: 'reservation', local: true do |f| %>
+  <%= form_with model: @reservation, id: 'charge-form', class: 'reservation', local: true do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
       <div class="reservation-price">
-        <h2>コース選択</h2>
 
+    <h2>クレジットカード情報</h2>
+    <div class="card-form">
+      <div class='form-wrap'>
+      <%= f.label :カード番号, class: 'label'%><br />
+        <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+      </div>
+      <div class='form-wrap'>
+        <a class="cvc">CVC</a><br />
+        <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+      </div>
+      <div class='form-wrap'>
+        <%= f.label :有効期限, class: 'label'%><br />
+      <div class='input-expiration-date-wrap'>
+        <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>月<br />
+        <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>年
+      </div>
+    </div>
+      <h2>コース選択</h2>
+      <div class="reservation">
         <div calss="reservation-date">
           <%= f.label :日付を選択, class: 'label'%><br />
           <%= f.date_field :date, class: 'date', min: Date.current %>
@@ -27,7 +45,7 @@
         <div class="person-price">
           <span>1人当たりのお支払い</span><br />
           <span>
-          <%= f.text_field :person_price %>
+          <%= f.hidden_field :person_price %>
           <span id="person_price"></span>円 
           </span>
         </div>
@@ -35,7 +53,7 @@
         <div class="total-price">
           <span>合計金額</span><br />
           <span>
-          <%= f.text_field :total_price %>
+          <%= f.hidden_field :total_price %>
           <span id="total_price"></span>円
           </span>
           
@@ -45,9 +63,9 @@
           <%= f.label :その他%><br />
           <%= f.text_area :remark, placeholder:"嫌いな食べ物など",class: 'remark'%>
         </div>
-
+      </div>
       <div>
-        <%= f.submit "予約する"%> 
+        <%= f.submit "予約する", id: "button"%> 
       </div>
 
     <div class="reservation-btn">

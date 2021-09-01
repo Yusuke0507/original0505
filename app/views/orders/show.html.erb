@@ -1,12 +1,19 @@
+<div class="detail">
+<h2>ご注文</h2>
 <%= form_with model: @order, class: 'order', local: true do |f| %>
   
   <%= image_tag @product.image, size: "600x400" %><br />
-  <%= @product.name %><br />
-  <div id="price">
-  <%= @product.price %><br />
+  <div id="name", class="name">
+    <%= @product.name %>
   </div>
+  <div id="price", class="price">
+    <%= @product.price %>
+  </div>
+  <div class="volume">
+    <%= @product.volume%>
 
 <% end %>
+
 
 <%= form_with model: @order, id: 'order-form', class: 'order', local: true do |f| %>
   
@@ -22,25 +29,36 @@
 
   <div class='product_price'>
     <span>合計金額</span><br />
-        <span id='product_price'></span>円
+      <%= f.hidden_field :product_price %>
+      <span id='product_price'></span>円
     </span>
-
-  <div>
-    <%= f.submit "予約する", id: "button"%> 
   </div>
 
-
+    <div class='product_name'>
+      <%= f.text_field :product_name %>
+    </div>
+  <div>
+    <%= f.submit "購入する", id: "button"%> 
+  </div>
+  <%= link_to '戻る', root_path, class:'reservation-form'%> 
 <% end %>
+
+</div>
 
 <script>
 window.addEventListener('load', () => {
   const priceInput = document.getElementById("price");
-    const inputValue = priceInput.value;
-    document.getElementById("order_number").getAttribute("order_number");
-
-    priceInput.addEventListener("input", () => {
-    const addProductDom =document.getElementById("product_price");
-    addProductDom.innerHTML = (Math.floor(inputValue * number));
+    const inputValue = priceInput.innerHTML;
+    const orderNumber = document.getElementById("order_number");
+    const nameInput = document.getElementById("name")
+    console.log(nameInput)
+    console.log(priceInput)
+    document.getElementById("product_name").value = nameInput;
+    
+    order_number.addEventListener("input", () => {
+    document.getElementById("product_price").innerHTML = Math.floor(inputValue * parseInt(document.getElementById("order_number").value));
+    document.getElementById("order_product_price").value = Math.floor(inputValue * parseInt(document.getElementById("order_number").value));
   })
 })
 </script>
+

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_051409) do
     t.integer "price"
     t.string "name"
     t.text "image"
+    t.text "volume"
     t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

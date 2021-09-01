@@ -4,14 +4,18 @@
     <div class="reservation-price">
     <h2>商品選択</h2>
 
-    <% Product.all.each do |product|%>
-      <ul class="product">
-        <li><img src="<%= product.image %>"></li>
-        <li><%= product.name %></li>
-        <li><%= product.price %></li>
-      </ul>
-    <% end %>
+    <% @products.each do |product| %>
+  
+        <%= link_to order_path(product.id), method: :get, class:'product-form' do %>
+        
+          <%= image_tag product.image, size: "600x400" %>
+          <%= product.name %>
+          <%= product.price %>
+        
 
+      <% end %>
+    <% end %>
+    
     <div class="reservation-btn">
       <%= link_to '戻る', root_path, class:'reservation-form'%> 
     </div>

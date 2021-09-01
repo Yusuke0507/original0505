@@ -1,0 +1,45 @@
+<%= form_with model: @order, class: 'order', local: true do |f| %>
+  
+  <%= image_tag @product.image, size: "600x400" %><br />
+  <%= @product.name %><br />
+  <%= @product.price %><br />
+
+  <% if @product.id[1]%>
+    <p>商品1</p>
+  <% elsif @product.id[2]%>
+    <p>商品2</p>
+  <% end %>
+
+<% end %>
+
+<%= form_with model: @order, id: 'order-form', class: 'order', local: true do |f| %>
+  
+  <div calss="order-date">
+    <%= f.label :到着希望日を選択, class: 'label'%><br />
+    <%= f.date_field :date, class: 'arrival', min: Date.current %>
+  </div>
+
+  <div class="reservation-people">
+    <%= f.label :数量%><br />
+    <%= f.number_field :number, class: 'number'%>セット
+  </div>
+
+  <div class='product_price'>
+    <span>合計金額</span><br />
+        <span id='product_price'></span>円
+    </span>
+
+  <div>
+    <%= f.submit "予約する", id: "button"%> 
+  </div>
+
+
+<% end %>
+
+<script>
+window.addEventListener('load', () => {
+  const priceInput = document.getElementById("item-price");
+  priceInput.addEventListener("input", () => {
+    const inputValue = priceInput.value;
+
+</script>

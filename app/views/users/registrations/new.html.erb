@@ -29,7 +29,7 @@
 
        <div class="field">
         <label>郵便番号</label><br />
-        <%= f.text_field :postal_code, placeholder: "例) 1234567" %>
+        <%= f.text_field :postal_code, placeholder: "例) 123-4567" %>
       </div>
 
       <div class="field">
@@ -61,6 +61,8 @@
       <div class="actions">
         <%= f.submit "Sign up" %>
       </div>
+
+      <%= link_to '戻る', root_path, class:'reservation-form'%> 
     <% end %>
   </div>
 </div>

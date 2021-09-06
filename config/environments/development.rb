@@ -61,13 +61,17 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   Rails.application.configure do
     # default url
-    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    config.action_mailer.default_url_options = {
+       protocol: 'https',
+       host: ENV["CLOUD9_APP_ROOT_URL"]
+     }
+    config.action_mailer.default_url_options = { host: 'herokuapp.com', port: 3000 }
     # mail setting
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       :address => "smtp.gmail.com",
-      :port => 587,
+      :port => 587, 
       :user_name => ENV["GMAIL_ADDRESS"],
       :password => ENV["GMAIL_2FACTOR_PASSWORD"],
       :authentication => :plain,

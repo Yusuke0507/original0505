@@ -1,25 +1,31 @@
-<div class="detail">
-<h2>ご注文</h2>
+<h1>ご注文</h1>
+<div class="order-show">
 <%= form_with model: @order, class: 'order', local: true do |f| %>
-  
-  <%= image_tag @product.image, size: "600x400" %><br />
-  <div id="name", class="name">
-    <%= @product.name %>
+  <div class="detail">
+    <div id="photo", class="detail-photo">
+      <%= image_tag @product.image, size: "600x400" %>
+    </div>
+    <div id="name", class="detail-name">
+      <%= @product.name %>
+    </div>
+    <div id="price", class="detail-price">
+      <%= @product.price %>
+    </div>
+    <div class="detail-volume">
+      <%= simple_format @product.volume%>
+    </div>
   </div>
-  <div id="price", class="price">
-    <%= @product.price %>
-  </div>
-  <div class="volume">
-    <%= @product.volume%>
-
 <% end %>
 
 
-<%= form_with model: @order, id: 'order-form', class: 'order', local: true do |f| %>
-  
+<%= form_with model: @order, id: 'order-form', local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+
+
+<div class="order-form">
   <div calss="order-date">
     <%= f.label :到着希望日を選択, class: 'label'%><br />
-    <%= f.date_field :date, class: 'arrival', min: Date.current %>
+    <%= f.date_field :arrival, class: 'arrival', min: Date.current %>
   </div>
 
   <div class="order-number">
@@ -34,16 +40,24 @@
     </span>
   </div>
 
-    <div class='product_name'>
-      <%= f.text_field :product_name %>
-    </div>
+  <div class='product_name'>
+    <%= f.hidden_field :product_name %>
+  </div>
+  
+  <div class='product_id'>
+    <%= f.hidden_field :product_id, :value => @product.id %>
+  </div>
+  
   <div>
-    <%= f.submit "購入する", id: "button"%> 
+    <%= f.submit "購入する"%> 
   </div>
   <%= link_to '戻る', root_path, class:'reservation-form'%> 
+</div>
+</div>
+
+  
 <% end %>
 
-</div>
 
 <script>
 window.addEventListener('load', () => {
@@ -51,9 +65,8 @@ window.addEventListener('load', () => {
     const inputValue = priceInput.innerHTML;
     const orderNumber = document.getElementById("order_number");
     const nameInput = document.getElementById("name")
-    console.log(nameInput)
-    console.log(priceInput)
-    document.getElementById("product_name").value = nameInput;
+    const nameValue = nameInput.innerHTML;
+    document.getElementById("order_product_name").value = nameValue;
     
     order_number.addEventListener("input", () => {
     document.getElementById("product_price").innerHTML = Math.floor(inputValue * parseInt(document.getElementById("order_number").value));

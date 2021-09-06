@@ -194,13 +194,18 @@ Products2
 /*-------------------------------------------
 商品一覧
 -------------------------------------------*/
-.photo{
-  display:flex;
+.index-all {
+  display: flex;
+  justify-content:space-around
 }
-
-
-
 
 /*-------------------------------------------
 詳細・注文
 -------------------------------------------*/
+.order-show {
+  display: flex;
+}
+
+.order-form {
+  margin-left: 50px;
+}

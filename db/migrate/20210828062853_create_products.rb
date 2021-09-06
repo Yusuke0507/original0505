@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :image 
       t.text :volume
-      t.references :order
+      t.references :order, foreign_key: true
       t.timestamps
     end
   end

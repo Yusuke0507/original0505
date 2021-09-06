@@ -1,20 +1,20 @@
-  <h1><%= link_to 'ご注文フォーム', root_path, class:'reservation-form'%></h1>
+  <h1><%= link_to '商品選択', root_path, class:'reservation-form'%></h1>
   <%= form_with model: @order, class: 'order', local: true do |f| %>
-  
-    <div class="reservation-price">
-    <h2>商品選択</h2>
-
-    <% @products.each do |product| %>
-  
-        <%= link_to order_path(product.id), method: :get, class:'product-form' do %>
-        <div class="photo">
-          <%= image_tag product.image, size: "600x400" %>
-          <%= product.name %>
-          <%= product.price %>円
-        </div>
-        <% end %>
-      <% end %>
     
+<div class="index-all">
+    <% @products.each do |product| %>
+      <%= link_to order_path(product.id), method: :get, class:'product-form' do %>
+        <div class="order-index">
+          <div class="photo">
+            <%= image_tag product.image, size: "600x400" %>
+          </div>
+          <div class="name">
+            <%= product.name %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
     <div class="reservation-btn">
       <%= link_to '戻る', root_path, class:'reservation-form'%> 
     </div>

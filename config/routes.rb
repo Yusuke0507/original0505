@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   root to: 'reservations#index'
   resources :reservations, only: [:new, :create, :show]
-  resources :orders, only:[:index, :show]
+  resources :orders, only:[:index, :show, :create]
 end

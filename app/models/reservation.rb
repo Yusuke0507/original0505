@@ -4,7 +4,7 @@ class Reservation < ApplicationRecord
   attr_accessor :token
 
   with_options presence: true do
-    validates :menu_id, numericality: { other_than: 1}
+    validates :menu_id, numericality: { other_than: 1, message: 'を選択してください。'}
     validates :date
     validates :time
     validates :user_id

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_051409) do
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "arrival", null: false
     t.integer "number", null: false
-    t.integer "product_name", null: false
+    t.string "product_name", null: false
     t.integer "product_price", null: false
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
@@ -102,5 +102,6 @@ ActiveRecord::Schema.define(version: 2021_08_30_051409) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "orders"
   add_foreign_key "reservations", "users"
 end

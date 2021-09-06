@@ -4,5 +4,7 @@
     <p>ご予約日: <%= @reservation.date%></p>
     <p>ご予約時間: <%= @reservation.time.strftime( "%H:%M" )%></p>
      <p>お支払いは <%=@reservation.total_price%> 円です</p>
+
+     <p>※領収書ご入用の方はご来店時にスタッフにお申し付けください。</p>
     <a class="btn" href="/">トップページへ戻る</a>
   </div>

@@ -13,7 +13,7 @@
 ## 本番環境
 
 ログイン情報(テスト用). 
-  ・　Eメール : xitianxiongjie0@gmail.com. 
+  ・　Eメール : xitianxiongjie0@gmail.com
   ・パスワード : 000000
   
 ## 制作背景

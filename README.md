@@ -13,9 +13,9 @@
 ## 本番環境
 
 ログイン情報(テスト用). 
-  ・URL : https://original0505.herokuapp.com/. 
-  ・　Eメール : xitianxiongjie0@gmail.com. 
-  ・パスワード : 000000. 
+  ・URL : https://original0505.herokuapp.com/.  
+  ・　Eメール : xitianxiongjie0@gmail.com.  
+  ・パスワード : 000000.  
   
 ## 制作背景
 前職の和食料理店で働いていた際に以下2点の課題解決のため、作成致しました。  

@@ -14,7 +14,7 @@
 
 ログイン情報(テスト用).  
   ・URL : https://original0505.herokuapp.com/.  
-  ・　Eメール : xitianxiongjie0@gmail.com.  
+  ・Eメール : xitianxiongjie0@gmail.com.  
   ・パスワード : 000000.  
   
 ## 制作背景
